@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Buscador</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="\edi3\Estilos\EstiloBuscador.css">
+</head>
+
+<body>
+    <form action="VerPropiedades.php" method="post">
+
+        <div id="barra_buscador">
+            <div>
+                <label for="tipo_inmueble_id">Tipo de Inmueble:</label>
+                <select name="inmueble_id" id="tipo_inmueble_id"> 
+                    <option value="-1">Todos</option> 
+                    <option value="1">Casas</option>
+                    <option value="2">Departamentos</option> 
+                    <option value="3">Locales</option> 
+                    <option value="4">Terrenos</option> 
+                    <option value="5">Campos</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="tipo_operacion_id">Tipo de Operación:</label>
+                <select name="operacion_id" id="tipo_operacion_id"> 
+                    <option value="-1">Todos</option> 
+                    <option value="alquiler">Alquiler</option> 
+                    <option value="venta">Venta</option> 
+                </select>
+            </div>
+            <div>
+                <label for="qcant_habitaciones_id" id="etq_cant_habitaciones">Cantidad de habitaciones:</label>
+                <select name="habitacion_id" id="qcant_habitaciones_id"> 
+                    <option value="-1">Indefinido</option> 
+                    <option value="0">0 Habitaciones (Monoambiente)</option> 
+                    <option value="1">1 Habitacion</option> 
+                    <option value="2">2 Habitaciones</option> 
+                    <option value="3">3 Habitaciones</option> 
+                </select>
+            </div>
+        </div>
+
+        <div id="barra_filtros">
+            <div>
+                <label for="qcochera_id">Cochera:</label>
+                <select name="cochera_id" id="qcochera_id"> 
+                    <option value="-1">Indistinto</option> 
+                    <option value="1">Si</option> 
+                    <option value="0">No</option> 
+                </select>
+            </div>
+            <div>
+                <label for="qpatio_id">Patio:</label>
+                <select name="patio_id" id="qpatio_id"> 
+                    <option value="-1">Indistinto</option> 
+                    <option value="1">Si</option> 
+                    <option value="0">No</option> 
+                </select>
+            </div>
+            <div>
+                <label for="qpiscina_id">Piscina:</label>
+                <select name="piscina_id" id="qpiscina_id"> 
+                    <option value="-1">Indistinto</option> 
+                    <option value="1">Si</option> 
+                    <option value="0">No</option> 
+                </select>
+            </div>
+            <div>
+                <label for="qbalcon_id">Balcon:</label>
+                <select name="balcon_id" id="qbalcon_id"> 
+                    <option value="-1">Indistinto</option> 
+                    <option value="1">Si</option> 
+                    <option value="0">No</option> 
+                </select>
+            </div>
+            <div>
+                <label for="qquincho_id">Quincho:</label>
+                <select name="quincho_id" id="qquincho_id"> 
+                    <option value="-1">Indistinto</option> 
+                    <option value="1">Si</option> 
+                    <option value="0">No</option> 
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div style="display: inline-block; width: 100%; text-align: center;">
+            <button style="padding: 5px 20px;" type="submit">Buscar</button>
+        </div>
+    </form>
+    <script>
+        $('#tipo_inmueble_id').change(function() {
+            //alert(this.value);
+            var valueSelected = this.value;
+            if (valueSelected == 3 || valueSelected == 4 || valueSelected == 5) {
+                //alert('ocultar');
+                $("#etq_cant_habitaciones").hide();
+                $("#qcant_habitaciones_id").hide();
+            } else {
+                $("#etq_cant_habitaciones").show();
+                $("#qcant_habitaciones_id").show();
+            }
+        });
+    </script>
+</body>
+
+</html>
